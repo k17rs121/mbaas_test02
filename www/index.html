@@ -39,6 +39,18 @@
         $("#message").html(data + ":" + update);
       })
     }
+    function fetchAll(){
+      var TestClass = ncmb.DataStore("TestClass2");
+      TestClass.fetchAll().then(function(results){
+        var msg = "";
+        for(var i=0;i<results.length;i++){
+          var data=results[i].get("text");
+          var update=results[i].get("updateDate");
+          msg += data + ":" + update + "<br>";
+        }
+        $("#message").html(msg);
+      })
+    }
     </script>
 </head>
 <body>
